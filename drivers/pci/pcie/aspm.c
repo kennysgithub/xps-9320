@@ -830,7 +830,8 @@ static void pcie_aspm_cap_init(struct pcie_link_state *link, int blacklist)
 	aspm_l1ss_init(link);
 
 	/* Save default state */
-	link->aspm_default = link->aspm_enabled;
+	link->aspm_default = parent->dev_flags & PCI_DEV_FLAGS_ENABLE_ASPM ?
+			     PCIE_LINK_STATE_ASPM_ALL : link->aspm_enabled;
 
 	/* Setup initial capable state. Will be updated later */
 	link->aspm_capable = link->aspm_support;
