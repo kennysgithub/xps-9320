@@ -5,6 +5,9 @@ SUBLEVEL = 3
 EXTRAVERSION =
 NAME = Hurr durr I'ma ninja sloth
 
+LLVM=1
+LLVM_IAS=1
+
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
 # More info can be located in ./README
