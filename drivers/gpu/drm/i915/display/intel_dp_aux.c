@@ -240,7 +240,12 @@ intel_dp_aux_xfer(struct intel_dp *intel_dp,
 		 * timeouts that would otherwise happen.
 		 * TODO: abort the transfer on non-TC ports as well.
 		 */
-		if (!intel_tc_port_connected_locked(&dig_port->base)) {
+		if (0 & !intel_tc_port_connected_locked(&dig_port->base)) {
+		/*
+			commit a972cd3f0 ("drm/i915/tc: Abort DP AUX transfer on a disconnected TC port")
+			    breaks my multi-monitor setup, disable
+		*/
+
 			ret = -ENXIO;
 			goto out_unlock;
 		}
