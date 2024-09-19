@@ -1025,6 +1025,13 @@ S:	Supported
 T:	git https://gitlab.freedesktop.org/agd5f/linux.git
 F:	drivers/gpu/drm/amd/display/
 
+AMD DISPLAY CORE - DML
+M:	Chaitanya Dhere <chaitanya.dhere@amd.com>
+M:	Jun Lei <jun.lei@amd.com>
+S:	Supported
+F:	drivers/gpu/drm/amd/display/dc/dml/
+F:	drivers/gpu/drm/amd/display/dc/dml2/
+
 AMD FAM15H PROCESSOR POWER MONITORING DRIVER
 M:	Huang Rui <ray.huang@amd.com>
 L:	linux-hwmon@vger.kernel.org
@@ -1799,6 +1806,7 @@ L:	dri-devel@lists.freedesktop.org
 S:	Supported
 T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
 F:	Documentation/gpu/panfrost.rst
+F:	drivers/gpu/drm/ci/xfails/panfrost*
 F:	drivers/gpu/drm/panfrost/
 F:	include/uapi/drm/panfrost_drm.h
 
@@ -6724,6 +6732,7 @@ F:	drivers/dma-buf/dma-heap.c
 F:	drivers/dma-buf/heaps/*
 F:	include/linux/dma-heap.h
 F:	include/uapi/linux/dma-heap.h
+F:	tools/testing/selftests/dmabuf-heaps/
 
 DMC FREQUENCY DRIVER FOR SAMSUNG EXYNOS5422
 M:	Lukasz Luba <lukasz.luba@arm.com>
@@ -7398,10 +7407,10 @@ F:	drivers/gpu/drm/udl/
 
 DRM DRIVER FOR VIRTUAL KERNEL MODESETTING (VKMS)
 M:	Rodrigo Siqueira <rodrigosiqueiramelo@gmail.com>
-M:	Melissa Wen <melissa.srw@gmail.com>
 M:	Maíra Canal <mairacanal@riseup.net>
 R:	Haneen Mohammed <hamohammed.sa@gmail.com>
-R:	Daniel Vetter <daniel@ffwll.ch>
+R:	Simona Vetter <simona@ffwll.ch>
+R:	Melissa Wen <melissa.srw@gmail.com>
 L:	dri-devel@lists.freedesktop.org
 S:	Maintained
 T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
@@ -7434,7 +7443,7 @@ F:	drivers/gpu/drm/panel/panel-widechips-ws2401.c
 
 DRM DRIVERS
 M:	David Airlie <airlied@gmail.com>
-M:	Daniel Vetter <daniel@ffwll.ch>
+M:	Simona Vetter <simona@ffwll.ch>
 L:	dri-devel@lists.freedesktop.org
 S:	Maintained
 B:	https://gitlab.freedesktop.org/drm
@@ -7530,7 +7539,6 @@ M:	Kyungmin Park <kyungmin.park@samsung.com>
 L:	dri-devel@lists.freedesktop.org
 S:	Supported
 T:	git git://git.kernel.org/pub/scm/linux/kernel/git/daeinki/drm-exynos.git
-F:	Documentation/devicetree/bindings/display/exynos/
 F:	Documentation/devicetree/bindings/display/samsung/
 F:	drivers/gpu/drm/exynos/
 F:	include/uapi/drm/exynos_drm.h
@@ -8877,7 +8885,7 @@ W:	https://floatingpoint.billm.au/
 F:	arch/x86/math-emu/
 
 FRAMEBUFFER CORE
-M:	Daniel Vetter <daniel@ffwll.ch>
+M:	Simona Vetter <simona@ffwll.ch>
 S:	Odd Fixes
 T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
 F:	drivers/video/fbdev/core/
@@ -11044,6 +11052,7 @@ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
 F:	Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
 F:	Documentation/devicetree/bindings/gpu/img,powervr-sgx.yaml
 F:	Documentation/gpu/imagination/
+F:	drivers/gpu/drm/ci/xfails/powervr*
 F:	drivers/gpu/drm/imagination/
 F:	include/uapi/drm/pvr_drm.h
 
@@ -11552,6 +11561,24 @@ S:	Maintained
 F:	Documentation/ABI/testing/sysfs-driver-intel-m10-bmc-sec-update
 F:	drivers/fpga/intel-m10-bmc-sec-update.c
 
+INTEL MID (Mobile Internet Device) PLATFORM
+M:	Andy Shevchenko <andy@kernel.org>
+L:	linux-kernel@vger.kernel.org
+S:	Supported
+F:	arch/x86/include/asm/intel-mid.h
+F:	arch/x86/pci/intel_mid_pci.c
+F:	arch/x86/platform/intel-mid/
+F:	drivers/extcon/extcon-intel-mrfld.c
+F:	drivers/iio/adc/intel_mrfld_adc.c
+F:	drivers/mfd/intel_soc_pmic_mrfld.c
+F:	drivers/platform/x86/intel/mrfld_pwrbtn.c
+F:	drivers/platform/x86/intel_scu_*
+F:	drivers/staging/media/atomisp/
+F:	drivers/watchdog/intel-mid_wdt.c
+F:	include/linux/mfd/intel_soc_pmic_mrfld.h
+F:	include/linux/platform_data/x86/intel-mid_wdt.h
+F:	include/linux/platform_data/x86/intel_scu_ipc.h
+
 INTEL P-Unit IPC DRIVER
 M:	Zha Qipeng <qipeng.zha@intel.com>
 L:	platform-driver-x86@vger.kernel.org
@@ -11614,8 +11641,8 @@ F:	drivers/counter/intel-qep.c
 INTEL SCU DRIVERS
 M:	Mika Westerberg <mika.westerberg@linux.intel.com>
 S:	Maintained
-F:	arch/x86/include/asm/intel_scu_ipc.h
 F:	drivers/platform/x86/intel_scu_*
+F:	include/linux/platform_data/x86/intel_scu_ipc.h
 
 INTEL SDSI DRIVER
 M:	David E. Box <david.e.box@linux.intel.com>
@@ -11690,7 +11717,8 @@ F:	drivers/platform/x86/intel/uncore-frequency/
 INTEL VENDOR SPECIFIC EXTENDED CAPABILITIES DRIVER
 M:	David E. Box <david.e.box@linux.intel.com>
 S:	Supported
-F:	drivers/platform/x86/intel/vsec.*
+F:	drivers/platform/x86/intel/vsec.c
+F:	include/linux/intel_vsec.h
 
 INTEL VIRTUAL BUTTON DRIVER
 M:	AceLan Kao <acelan.kao@canonical.com>
@@ -11813,6 +11841,7 @@ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux.git
 F:	drivers/iommu/dma-iommu.c
 F:	drivers/iommu/dma-iommu.h
 F:	drivers/iommu/iova.c
+F:	include/linux/iommu-dma.h
 F:	include/linux/iova.h
 
 IOMMU SUBSYSTEM
@@ -18904,7 +18933,6 @@ F:	include/dt-bindings/clock/qcom,*
 QUALCOMM CLOUD AI (QAIC) DRIVER
 M:	Jeffrey Hugo <quic_jhugo@quicinc.com>
 R:	Carl Vanderlip <quic_carlv@quicinc.com>
-R:	Pranjal Ramajor Asha Kanojiya <quic_pkanojiy@quicinc.com>
 L:	linux-arm-msm@vger.kernel.org
 L:	dri-devel@lists.freedesktop.org
 S:	Supported
@@ -23344,6 +23372,7 @@ Q:	https://patchwork.kernel.org/project/linux-integrity/list/
 T:	git git://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git
 F:	Documentation/devicetree/bindings/tpm/
 F:	drivers/char/tpm/
+F:	tools/testing/selftests/tpm2/
 
 TPS546D24 DRIVER
 M:	Duke Du <dukedu83@gmail.com>
