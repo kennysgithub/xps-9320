@@ -71,9 +71,10 @@ enum vmd_features {
 	VMD_FEAT_CAN_BYPASS_MSI_REMAP		= (1 << 4),
 
 	/*
-	 * Program default LTR values for storage devices on platforms where
-	 * firmware did not. Required on many laptops for proper SoC power
-	 * management.
+	 * Enable ASPM on the PCIE root ports and set the default LTR of the
+	 * storage devices on platforms where these values are not configured by
+	 * BIOS. This is needed for laptops, which require these settings for
+	 * proper power management of the SoC.
 	 */
 	VMD_FEAT_BIOS_PM_QUIRK		= (1 << 5),
 };
@@ -726,7 +727,7 @@ static void vmd_copy_host_bridge_flags(struct pci_host_bridge *root_bridge,
 }
 
 /*
- * Enable LTR settings on devices that aren't configured by BIOS.
+ * Enable ASPM and LTR settings on devices that aren't configured by BIOS.
  */
 static int vmd_pm_enable_quirk(struct pci_dev *pdev, void *userdata)
 {
@@ -922,8 +923,6 @@ static int vmd_enable_domain(struct vmd_dev *vmd, unsigned long features)
 	WARN(sysfs_create_link(&vmd->dev->dev.kobj, &vmd->bus->dev.kobj,
 			       "domain"), "Can't create symlink to domain\n");
 
-	pci_host_set_default_pcie_link_state(to_pci_host_bridge(vmd->bus->bridge),
-					     PCIE_LINK_STATE_ALL);
 	vmd_acpi_begin();
 
 	pci_scan_child_bus(vmd->bus);
