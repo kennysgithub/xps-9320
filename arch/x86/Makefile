@@ -161,8 +161,8 @@ else
 	KBUILD_CFLAGS += -mskip-rax-setup
 
 ifdef CONFIG_X86_NATIVE_CPU
-        KBUILD_CFLAGS += $(call cc-option,-march=alderlake,$(call cc-option,-march=native))
-        KBUILD_RUSTFLAGS += -Ctarget-cpu=alderlake -Ztune-cpu=alderlake
+        KBUILD_CFLAGS += $(call cc-option,-march=lunarlake,$(call cc-option,-march=native))
+        KBUILD_RUSTFLAGS += -Ctarget-cpu=lunarlake -Ztune-cpu=lunarlake
 else
         KBUILD_CFLAGS += -march=x86-64 -mtune=generic
         KBUILD_RUSTFLAGS += -Ctarget-cpu=x86-64 -Ztune-cpu=generic
