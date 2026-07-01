@@ -5,6 +5,10 @@ SUBLEVEL = 0
 EXTRAVERSION = -rc1
 NAME = Baby Opossum Posse
 
+# Enable CLANG
+LLVM=1
+LLVM_IAS=1
+
 # *DOCUMENTATION*
 # To see a list of typical targets execute "make help"
 # More info can be located in ./README
